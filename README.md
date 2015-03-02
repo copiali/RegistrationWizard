@@ -24,9 +24,8 @@ Building the application
 Visual Studio
 -----------
 
-Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have    Nuget version 2.7 or higher
+Build the solution to install Nuget packages.(This will automatically restore Nuget packages. Please ensure you have Nuget version 2.7 or higher)
 
-* [Shiju Varghese](http://weblogs.asp.net/shijuvarghese/) - Architect
-* [Dileep C.D.](https://github.com/DileepCD) - Lead Developer
+you just need to  change the database connection string to your own in the "Web.config"
 
 
