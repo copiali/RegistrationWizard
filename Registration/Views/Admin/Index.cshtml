@@ -1,0 +1,90 @@
+﻿@using Registration.Models
+@model IEnumerable<Registration.Models.User>
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Admin Dashboard</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="opacity: 1;">
+    <div class="col-sm-12  col-md-12" style="padding: 20px;">
+        <h1 class="page-header">Organization Details</h1>
+
+        <div class="table-responsive">
+            <table id="OrganisationTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            Contact
+                        </th>
+                    </tr>
+                </thead>
+
+                @if (Model != null)
+                {
+                    foreach (User item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.OrganisationName
+
+                            </td>
+                            <td>
+                                @item.OrganisationAddress
+                            </td>
+                            <td>
+                                @item.OrganisationContact
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@Scripts.Render("~/bundles/DataTables")
+    <script type="text/javascript">
+        $('#OrganisationTable').dataTable({
+            "sPaginationType": "full_numbers",
+            "bJQueryUI": true,
+            "aaSorting": [[0, "asc"]],
+            "iDisplayLength": 20,
+            'aLengthMenu': [[10, 20, 30, 50], [10, 20, 30, 50]],
+            'oLanguage': {
+                "sZeroRecords": "No Data found"
+            }
+        });
+    </script>
+}

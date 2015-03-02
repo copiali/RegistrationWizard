@@ -1,0 +1,146 @@
+﻿@model Registration.ViewModels.UserSignUpModel
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <td>
+                User Name
+            </td>
+            <td>
+                @Model.UserName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Country
+            </td>
+            <td>
+                @Model.Country
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Organization Name
+            </td>
+            <td>
+                @Model.OrganisationName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Organization Address
+            </td>
+            <td>
+                @Model.OrganisationAddress
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Primary firstName
+            </td>
+            <td>
+                @Model.PriEmail
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Primary lastName
+            </td>
+            <td>
+                @Model.PriLastName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Primary Email
+            </td>
+            <td>
+                @Model.PriEmail
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Second firstName
+            </td>
+            <td>
+                @Model.SecFirstName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Second lastName
+            </td>
+            <td>
+                @Model.SecLastName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Second Email
+            </td>
+            <td>
+                @Model.SecEmail
+            </td>
+        </tr>
+        <tr>
+            <td>
+                1. Please choose the services:
+            </td>
+            <td>
+                @if (ViewBag.ServicesList != null)
+                {
+                    @Html.Raw(string.Join(",", @ViewBag.ServicesList))
+                }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2. Please choose your location:
+            </td>
+            <td>
+                @ViewBag.Location
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3. Please rate this web site:
+            </td>
+            <td>
+                @Model.Rate
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4: Where you find our website:
+            </td>
+            <td>
+                @Model.ServiceSource
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5. How many employees in your company:
+            </td>
+            <td>
+                @Model.EmployeesNo
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6: Please give some comments:
+            </td>
+            <td>
+                @Model.Comments
+            </td>
+        </tr>
+        <tr>
+            <td>
+                7. Revice news letters
+            </td>
+            <td>
+                @(string.IsNullOrEmpty(Model.NewsLetters) ? "No" : "Yes")
+            </td>
+        </tr>
+    </table>
+</div>

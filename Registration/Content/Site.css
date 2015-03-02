@@ -1,0 +1,46 @@
+﻿img.bg {
+    height: auto;
+    left: 0;
+    /* Set rules to fill background */
+    min-height: 979px;
+    min-width: 1612px;
+    /* Set up positioning */
+    position: fixed;
+	
+    top: 0;
+    /* Set up proportionate scaling */
+    width: 100%;
+    z-index: -1000;
+}
+
+img {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.dataTables_wrapper .ui-toolbar { margin-bottom: 0; }
+
+
+
+section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.start-btn {
+    border: 2px solid white;
+    color: #fff;
+    display: inline-block;
+    font-size: 24px;
+    opacity: 0.7;
+    padding: 15px 25px;
+}
+
+.start-btn:hover {
+    color: #fff;
+    text-decoration: none;
+}

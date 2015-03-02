@@ -1,0 +1,345 @@
+﻿@model Registration.ViewModels.IndexFormView
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_ResponsiveLayout.cshtml";
+}
+@section Styles{
+    <style>
+        .red-star { color: red; }
+
+        .form-margin { margin-top: 10px; }
+
+        .chosen-container-multi .chosen-choices li.search-field input[type="text"] { height: 26px; }
+    </style>
+}
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="border: 1px solid gray;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Registration</h3>
+                        </div>
+                        <div class="panel-body panel-body-nopadding">
+                            <!-- BASIC WIZARD -->
+                            <div id="Wizard" class="basic-wizard">
+
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#UserDetails" data-toggle="tab"><span>Step 1:</span> User Details</a></li>
+                                    <li><a href="#ContactDetails" data-toggle="tab"><span>Step 2:</span> Contact Details</a></li>
+                                    <li><a href="#Questionnaires" data-toggle="tab"><span>Step 3:</span> Questionnaires</a></li>
+                                    <li><a href="#Summary" data-toggle="tab"><span>Step 4:</span> Summary</a></li>
+                                </ul>
+
+                                <form  id="WizzardForm" role="form">
+                                    <div class="tab-content">
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="tab-pane" id="UserDetails">
+                                            <div class="form-horizontal">
+                                                <p>
+                                                    User Details<span class="red-star">*</span>
+                                                </p>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="UserName">User Name</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="email" class="form-control" id="UserName" name="UserName" placeholder="User Name (Email)" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="Password">Password</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" autocomplete="off" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="Country">Country</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="Country" name="Country" placeholder="Country" required>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    Organization Details<span class="red-star">*</span>
+                                                </p>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="OrganisationName">Organisation Name</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="OrganisationName" name="OrganisationName" placeholder="Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="OrganisationAddress">Organisation address</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="OrganisationAddress" name="OrganisationAddress" placeholder="Address" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="OrganisationContact">contact</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text"  class=" form-control" id="OrganisationContact" name="OrganisationContact" placeholder="Contact">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="ContactDetails">
+                                            <div class="form-horizontal">
+                                                <p>
+                                                    Primary Contact Details<span class="red-star">*</span>
+                                                </p>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="PriFirstName">First Name</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="PriFirstName" name="PriFirstName" placeholder="Frist Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="PriLastName">Last Name</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="PriLastName" name="PriLastName" placeholder="Last Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="PriEmail">Email</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="email" class="form-control" id="PriEmail" name="PriEmail" placeholder="Email Address" required>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    Secondary Contact Details
+                                                </p>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="SecFirstName">First Name</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="SecFirstName" name="SecFirstName" placeholder="Frist Name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="SecLastName">Last Name</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="SecLastName" name="SecLastName" placeholder="Last Name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="SecEmail">Email</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="email" class="form-control" id="SecEmail" name="SecEmail" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="tab-pane" id="Questionnaires">
+                                            
+                                            <p>1. Please choose the services:</p>
+                                           
+
+                                            @Html.ListBox("Services", Model.Services, new
+                                            {
+                                                @class = "chzn-select form-control",
+                                                data_placeholder = "Multiple.."
+                                            })
+                                            
+                                            
+                                            <p class="form-margin">2. Please choose your location:</p>
+                                           
+                                            @Html.DropDownList("Location", Model.Locations, new
+                                            {
+                                                @class = "chzn-select form-control",
+                                                data_placeholder = "Location"
+                                            })
+                                           
+                                            <p class="form-margin">3. Please rate this web site<span class="red-star">*</span>: </p>
+                                           
+                                            <label class="radio-inline ">
+                                                <input type="radio" name="Rate" id="Rate1" value="1"> 1
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="Rate" id="Rate2" value="2"> 2
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="Rate" id="Rate3" value="3"> 3
+                                            </label>
+                                            <label for="Rate" class="error">Please select the Rate</label>
+                                            <p>4. Where you find our website: </p>
+                                            
+                                            <input type="text" class="form-control" name="ServiceSource" id="ServiceSource" placeholder="eg. Google, Friends">
+                                           
+                                            <p class="form-margin">5. How many employees in your company: </p>
+                                            
+                                            <input type="text" class="form-control" name="EmployeesNo" id="EmployeesNo" placeholder="Number..">
+                                            
+
+                                            <p class="form-margin">6. Please give some comments: </p>
+                                           
+                                            <textarea class="form-control" rows="3" id="Comments" name="Comments" placeholder="Comments..."></textarea>
+                                            <div class="checkbox">
+                                                                     <label>
+                                                                         <input type="checkbox" id="newsLetters" name="NewsLetters"> Revice news letters 
+                                                                     </label>
+                                                                 </div>
+                                            <div class="alert alert-danger fade in" role="alert" style="display: none" id="ErrorAlter">
+                                                <strong>There was a problem</strong> with your information.
+                                                Please correct the errors.
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="Summary">
+                                            <div id="SummaryTable"></div>
+                                        </div>
+                                    </div><!-- tab-content -->
+                                    
+
+                                </form>
+
+                                <ul class="pager wizard">
+                                    <li class="previous"><a href="javascript:void(0)">Previous</a></li>
+                                    <li class="next"><a href="javascript:void(0)">Next</a></li>
+                                    <li class="last" id="SubmitBtn" style="display: none;float:right;"><a href="javascript:void(0)">Finish</a></li>
+                                </ul>
+
+                            </div><!-- #Wizard -->
+
+                        </div><!-- panel-body -->
+                    </div><!-- panel -->
+                </div><!-- col-md-12 -->
+
+            </div><!-- row -->
+
+        </div><!-- contentpanel -->
+
+    </div><!-- mainpanel -->
+
+
+</section>
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery.sparkline.min.js"></script>
+    <script src="~/Scripts/bootstrap-wizard.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).ajaxStop($.unblockUI);
+            $(".chzn-select").chosen({ width: "100%" });
+
+            // With Form Validation Wizard
+            var $validator = $("#WizzardForm").validate({
+                rules: {
+                    OrganisationContact: {
+                        required: true,
+                        number: true
+                    },
+                    Rate: {
+                        required: true
+                    },
+                    EmployeesNo: {
+                        number: true
+                    }
+                },
+                highlight: function(element) {
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                },
+                success: function(element) {
+                    $(element).closest('.form-group').removeClass('has-error');
+                }
+            });
+            $('#Wizard').bootstrapWizard({
+                'nextSelector': '.next',
+                'previousSelector': '.previous',
+                onPrevious: function(tab, navigation, index) {
+                    $('#ErrorAlter').hide();
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+                    var $percent = ($current / $total) * 100;
+                    $('#Wizard').find('.progress-bar').css('width', $percent + '%');
+                    if ($current >= $total) {
+                        $('#Wizard').find('.pager .next').hide();
+                        $('#SubmitBtn').removeClass('disabled');
+                        $('#SubmitBtn').show();
+                    } else {
+                        $('#Wizard').find('.pager .next').show();
+                        $('#SubmitBtn').hide();
+                    }
+                },
+                onTabShow: function(tab, navigation, index) {
+                    $('#ErrorAlter').hide();
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+                    var $percent = ($current / $total) * 100;
+                    $('#Wizard').find('.progress-bar').css('width', $percent + '%');
+                },
+                tabClass: 'nav nav-pills nav-justified nav-disabled-click',
+                onTabClick: function(tab, navigation, index) {
+                    return false;
+                },
+                onNext: function (tab, navigation, index) {
+                    $('#SubmitBtn').removeClass('disabled');
+                    $('#ErrorAlter').hide();
+                    var $valid = $('#WizzardForm').valid();
+                    if (!$valid) {
+                        $validator.focusInvalid();
+                        return false;
+                    } else {
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var hasError = false;
+                        if ($current === $total) {
+                            $.ajax({
+                                type: "POST",
+                                async: false,
+                                url: '@Url.Action("Registration", "Home")',
+                                data: $('#WizzardForm').serialize()
+                            }).done(function(response) {
+                                $('#SummaryTable').html(response);
+                            }).fail(function() {
+                                hasError = true;
+                            });
+                            if (hasError) {
+                                $('#ErrorAlter').show();
+                                return false;
+                            } else {
+                                var $percent = ($current / $total) * 100;
+                                $('#Wizard').find('.progress-bar').css('width', $percent + '%');
+                                if ($current >= $total) {
+                                    $('#Wizard').find('.pager .next').hide();
+                                    $('#SubmitBtn').removeClass('disabled');
+                                    $('#SubmitBtn').show();
+                                } else {
+                                    $('#Wizard').find('.pager .next').show();
+                                    $('#SubmitBtn').hide();
+                                }
+                            }
+                        }
+                }
+                }
+            });
+            $('.last').click(function(event) {
+                event.preventDefault();
+                $.blockUI({ message: $('#blockMsg') });
+                $.ajax({
+                    url: '@Url.Action("Confirm", "Home")',
+                    type: 'Post',
+                    dataType: 'json',
+                    success: function(data) {
+                        window.location.href = data['url'];
+                    },
+                    error: function(jqXHR, text, Status) {
+                        var res = $.parseJSON(jqXHR.responseText);
+                        window.location.href = res['url'];
+                    }
+                });
+            });
+        });
+    </script>  
+}
